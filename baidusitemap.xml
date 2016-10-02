@@ -3,29 +3,6 @@
 
 
     
-  <url>
-    <loc>http://congyuandong.cn/2014/11/01/django-tag/</loc>
-    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
-    <data>
-        <display>
-        <title>Django使用自定义Tag实现动态导航栏</title>
-        <pubTime>2014-11-01T07:07:02.000Z</pubTime>
-        
-        <tag>django</tag>
-         
-        <tag>tag</tag>
-         
-        <tag>nav</tag>
-         
-         
-           
-             
-              <breadCrumb title="django" url="http://congyuandong.cn/categories/django/"/>
-          
-        </display>
-    </data>
-    </url>
-
     
   <url>
     <loc>http://congyuandong.cn/2014/10/27/access-control-allow-origin/</loc>
@@ -754,4 +731,28 @@
 
     
     
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/11/01/django-tag/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Django使用自定义Tag实现动态导航栏</title>
+        <pubTime>2014-11-01T07:07:02.000Z</pubTime>
+        
+        <tag>django</tag>
+         
+        <tag>tag</tag>
+         
+        <tag>nav</tag>
+         
+         
+           
+             
+              <breadCrumb title="django" url="http://congyuandong.cn/categories/django/"/>
+          
+        </display>
+    </data>
+    </url>
+
 </urlset>

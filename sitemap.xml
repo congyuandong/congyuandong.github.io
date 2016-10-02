@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://congyuandong.cn/2014/11/01/django-tag/</loc>
+    <loc>http://congyuandong.cn/tools/index.html</loc>
     
-    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <lastmod>2016-10-02T12:52:42.000Z</lastmod>
     
   </url>
   
@@ -262,6 +262,13 @@
   
   <url>
     <loc>http://congyuandong.cn/demo/index.html</loc>
+    
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://congyuandong.cn/2014/11/01/django-tag/</loc>
     
     <lastmod>2016-09-30T01:34:24.000Z</lastmod>
     
