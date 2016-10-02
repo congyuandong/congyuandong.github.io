@@ -1,0 +1,779 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+
+
+  <link href="//fonts.useso.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="oracle," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
+
+
+
+
+
+
+<meta name="description" content="step 0 检查安装环境### Memory RequirementsMinimum: 1 GB of RAMRecommended: 2 GB of RAM or more# grep MemTotal /proc/meminfo### Disk Space Requirements   在 Linux x86 系统中所需软件和数据空间:&amp;lt;col width=”“ /&amp;gt;Instal">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Centos 6.4 x64 静默安装 oracle 11g R2">
+<meta property="og:url" content="http://congyuandong.cn/2013/04/18/centos-oracle-install/index.html">
+<meta property="og:site_name" content="Scott's Blog">
+<meta property="og:description" content="step 0 检查安装环境### Memory RequirementsMinimum: 1 GB of RAMRecommended: 2 GB of RAM or more# grep MemTotal /proc/meminfo### Disk Space Requirements   在 Linux x86 系统中所需软件和数据空间:&amp;lt;col width=”“ /&amp;gt;Instal">
+<meta property="og:updated_time" content="2016-09-30T01:34:24.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Centos 6.4 x64 静默安装 oracle 11g R2">
+<meta name="twitter:description" content="step 0 检查安装环境### Memory RequirementsMinimum: 1 GB of RAMRecommended: 2 GB of RAM or more# grep MemTotal /proc/meminfo### Disk Space Requirements   在 Linux x86 系统中所需软件和数据空间:&amp;lt;col width=”“ /&amp;gt;Instal">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: "post",
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Centos 6.4 x64 静默安装 oracle 11g R2 | Scott's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+<div style="display:none">
+<script src="http://s11.cnzz.com/stat.php?id=5558488&web_id=5558488" language="JavaScript"></script>
+</div>
+
+
+
+
+  
+  
+
+  <div class="container one-collumn  page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Scott's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">骐骥一跃不能十步 驽马十驾功在不舍</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-travel">
+          <a href="/categories/travel" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            回忆
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-demo">
+          <a href="/categories/demo" rel="section">
+            
+              <i class="menu-item-icon fa fa-question-circle fa-fw"></i> <br />
+            
+            DEMO
+          </a>
+        </li>
+      
+
+      
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'DXxor_qZeTPayyxx2sct','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Centos 6.4 x64 静默安装 oracle 11g R2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-04-18T17:13:33+08:00" content="2013-04-18">
+              2013-04-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/database/" itemprop="url" rel="index">
+                    <span itemprop="name">database</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/04/18/centos-oracle-install/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/04/18/centos-oracle-install/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="step-0-检查安装环境"><a href="#step-0-检查安装环境" class="headerlink" title="step 0 检查安装环境"></a>step 0 检查安装环境</h2><div><br><br>### Memory Requirements<br><br><span class="bold" style="font-weight:bold;">Minimum</span>: 1 GB of RAM<br><br><span class="bold" style="font-weight:bold;">Recommended</span>: 2 GB of RAM or more<br><pre class="brush:bash;toolbar:false;"># grep MemTotal /proc/meminfo</pre><br><br>### Disk Space Requirements<br><br><em>   在 Linux x86 系统中所需软件和数据空间:<br><div class="inftblinformal" style="max-width:70em;"><table class="Informal" title="Disk Space Requirements For Software Files" summary="Disk Space Requirements For Software Files" dir="ltr" border="1" width="100%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" style="max-width:70em;"><colgroup>&lt;col width=”</colgroup></table></div></em>“ /&gt;<col width="50%"><thead><tr align="left" valign="top"><th align="left" valign="bottom" id="r1c1-t18" style="vertical-align:bottom;">Installation Type</th><th align="left" valign="bottom" id="r1c2-t18" style="vertical-align:bottom;">Requirement for Software Files (GB)</th></tr></thead><tbody><tr align="left" valign="top"><td align="left" id="r2c1-t18" headers="r1c1-t18" style="vertical-align:top;">Enterprise Edition</td><td align="left" headers="r2c1-t18 r1c2-t18" style="vertical-align:top;">3.95</td></tr><tr align="left" valign="top"><td align="left" id="r3c1-t18" headers="r1c1-t18" style="vertical-align:top;">Standard Edition</td><td align="left" headers="r3c1-t18 r1c2-t18" style="vertical-align:top;">3.88</td></tr></tbody><span class="span4br"></span></div><div class="inftblinformal" style="max-width:70em;"><table class="Informal" title="Disk Space Requirements" summary="Disk Space Requirements for Data Files" dir="ltr" border="1" width="100%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" style="max-width:70em;"><colgroup><col width="*"><col width="50%"></colgroup><thead><tr align="left" valign="top"><th align="left" valign="bottom" id="r1c1-t19" style="vertical-align:bottom;">Installation Type</th><th align="left" valign="bottom" id="r1c2-t19" style="vertical-align:bottom;">Disk Space for Data Files (GB)</th></tr></thead><tbody><tr align="left" valign="top"><td align="left" id="r2c1-t19" headers="r1c1-t19" style="vertical-align:top;">Enterprise Edition</td><td align="left" headers="r2c1-t19 r1c2-t19" style="vertical-align:top;">1.7</td></tr><tr align="left" valign="top"><td align="left" id="r3c1-t19" headers="r1c1-t19" style="vertical-align:top;">Standard Edition</td><td align="left" headers="r3c1-t19 r1c2-t19" style="vertical-align:top;">1.5</td></tr></tbody></table><span class="span4br"></span></div><br><em>   在 Linux x86-64 <span style="color:#222222;font-family:tahoma, sans-serif;font-size:small;line-height:19px;background-color:#ffffff;">系统中所需软件和数据空间</span>:<br><div class="inftblinformal" style="max-width:70em;"><table class="Informal" title="Disk Space Requirements For Software Files" summary="Disk Space Requirements For Software Files" dir="ltr" border="1" width="100%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" style="max-width:70em;"><colgroup>&lt;col width=”</colgroup></table></div></em>“ /&gt;<col width="50%"><thead><tr align="left" valign="top"><th align="left" valign="bottom" id="r1c1-t20" style="vertical-align:bottom;">Installation Type</th><th align="left" valign="bottom" id="r1c2-t20" style="vertical-align:bottom;">Requirement for Software Files (GB)</th></tr></thead><tbody><tr align="left" valign="top"><td align="left" id="r2c1-t20" headers="r1c1-t20" style="vertical-align:top;">Enterprise Edition</td><td align="left" headers="r2c1-t20 r1c2-t20" style="vertical-align:top;">4.35</td></tr><tr align="left" valign="top"><td align="left" id="r3c1-t20" headers="r1c1-t20" style="vertical-align:top;">Standard Edition</td><td align="left" headers="r3c1-t20 r1c2-t20" style="vertical-align:top;">4.22</td></tr></tbody><span class="span4br"></span><div class="inftblinformal" style="max-width:70em;"><table class="Informal" title="Disk Space Requirements" summary="Disk Space Requirements for Data Files" dir="ltr" border="1" width="100%" frame="hsides" rules="groups" cellpadding="3" cellspacing="0" style="max-width:70em;"><colgroup><col width="*"><col width="50%"></colgroup><thead><tr align="left" valign="top"><th align="left" valign="bottom" id="r1c1-t21" style="vertical-align:bottom;">Installation Type</th><th align="left" valign="bottom" id="r1c2-t21" style="vertical-align:bottom;">Disk Space for Data Files (GB)</th></tr></thead><tbody><tr align="left" valign="top"><td align="left" id="r2c1-t21" headers="r1c1-t21" style="vertical-align:top;">Enterprise Edition</td><td align="left" headers="r2c1-t21 r1c2-t21" style="vertical-align:top;">1.7</td></tr><tr align="left" valign="top"><td align="left" id="r3c1-t21" headers="r1c1-t21" style="vertical-align:top;">Standard Edition</td><td align="left" headers="r3c1-t21 r1c2-t21" style="vertical-align:top;">1.5<span class="span4br"></span><span class="span4br"></span></td></tr></tbody></table></div><pre class="brush:bash;toolbar:false;"># df -h</pre><span class="span4br"></span><div><span class="span4br"></span></div>
+
+<h2 id="step-1-安装所需的包"><a href="#step-1-安装所需的包" class="headerlink" title="step 1 安装所需的包"></a>step 1 安装所需的包</h2><div>对于linux6，oracle官方文档中列出了一下的依赖包，注意i686和x86_64的区别</div><div><pre class="brush:html;toolbar:false;">binutils-2.20.51.0.2-5.11.el6 (x86_64)<br>compat-libcap1-1.10-1 (x86_64)<br>compat-libstdc++-33-3.2.3-69.el6 (x86_64)<br>compat-libstdc++-33-3.2.3-69.el6.i686<br>gcc-4.4.4-13.el6 (x86_64)<br>gcc-c++-4.4.4-13.el6 (x86_64)<br>glibc-2.12-1.7.el6 (i686)<br>glibc-2.12-1.7.el6 (x86_64)<br>glibc-devel-2.12-1.7.el6 (x86_64)<br>glibc-devel-2.12-1.7.el6.i686<br>ksh<br>libgcc-4.4.4-13.el6 (i686)<br>libgcc-4.4.4-13.el6 (x86_64)<br>libstdc++-4.4.4-13.el6 (x86_64)<br>libstdc++-4.4.4-13.el6.i686<br>libstdc++-devel-4.4.4-13.el6 (x86_64)<br>libstdc++-devel-4.4.4-13.el6.i686<br>libaio-0.3.107-10.el6 (x86_64)<br>libaio-0.3.107-10.el6.i686<br>libaio-devel-0.3.107-10.el6 (x86_64)<br>libaio-devel-0.3.107-10.el6.i686<br>make-3.81-19.el6<br>sysstat-9.0.4-11.el6 (x86_64)</pre></div><div id="highlighter_749418" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><span class="span4br"></span></div>
+
+<p> &nbsp;可以从光盘安装，在第二个光盘的packages中，当然也可以yum安装，不过测试中使用yum安装之后依旧缺少很多包，可以从rpmfind网站下载安装。</p>
+<pre class="brush:bash;toolbar:false;">[root@congyuandong-centos ~]# yum install gcc make binutils setarch compat-db libstdc++-devel unixODBA unixODBC-devel libaio-devel sysstat</pre><div id="highlighter_97700" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><span style="font-family:consolas, &#39;bitstream vera sans mono&#39;, &#39;courier new&#39;, courier, monospace;line-height:17.59375px;background-color:#ffffff;">需要单独安装ksh包，因为冲突的关系，所以要加参数--nodeps</span><span class="span4br"></span></div><pre class="brush:bash;toolbar:false;">pdksh-5.2.14-36.el5.i386.rpm
+rpm -ivh --nodeps pdksh</pre>
+
+<h2 id="step-2-配置sysctl-conf文件"><a href="#step-2-配置sysctl-conf文件" class="headerlink" title="step 2 配置sysctl.conf文件"></a>step 2 配置sysctl.conf文件</h2><div>sysctl.conf用于配置OS的内核参数，具体的参数可以根据安装时的log提示来选择。</div><pre class="brush:bash;toolbar:false;">[root@congyuandong-centos ~]# vim /etc/sysctl.conf</pre><pre class="brush:bash;toolbar:false;"># Controls the maximum shared segment size, in bytes<br>#kernel.shmmax = 68719476736<br>kernel.shmmax = 4294967295<br><br># Controls the maximum number of shared memory segments, in pages<br>#kernel.shmall = 4294967296<br>kernel.shmall = 268435456<br>fs.file-max = 65535<br><br>fs.inotify.max_user_watches=892000<br><br>#Below for oracle11g<br>aio-max-nr = 1048576<br>kernel.core_uses_pid = 1<br>kernel.shmmax = 536870912<br>kernel.shmmni = 4096<br>kernel.shmall = 2097152<br>kernel.sem = 250 32000 100 128<br>net.core.rmem_default = 4194304<br>net.core.rmem_max = 4194304<br>net.core.wmem_default = 262144<br>net.core.wmem_max = 262144<br>fs.file-max = 6815744                                                                       net.ipv4.ip_local_port_range = 9000 65000</pre><br><br>使之生效<br><pre class="brush:bash;toolbar:false;">[root@congyuandong-centos ~]# /sbin/sysctl -p</pre><br><br>## step 3 增加用户组及用户<br><div>增加安装用户和安装组</div><pre class="brush:bash;toolbar:false;">[root@congyuandong-centos ~]# groupadd oracleDba<br>[root@congyuandong-centos ~]# useradd oracle -g oinstall -G oracleDba<br>useradd: group ‘oinstall’ does not exist<br>[root@congyuandong-centos ~]# groupadd oinstall<br>[root@congyuandong-centos ~]# useradd oracle -g oinstall -G oracleDba<br>[root@congyuandong-centos ~]# passwd oracle</pre><br><br>新建目录和权限设置<br><pre class="brush:bash;toolbar:false;">[root@congyuandong-centos ~]# mkdir -p /usr/local/oracle<br>[root@congyuandong-centos ~]# chown -R oracle:oracleDba /usr/local/oracle/<br>[root@congyuandong-centos ~]# chmod -R 755 /usr/local/oracle/</pre><br><br>修改用户配置文件,这里修改~/.bash_profile文件<br><pre class="brush:bash;toolbar:false;">ORACLE_BASE=/usr/local/oracle<br>ORACLE_HOME=$ORACLE_BASE/product/11.2.0/dbhome_1<br>ORACLE_SID=orcl<br>PATH=$ORACLE_HOME/bin:$PATH<br>ORACLE_OWNER=oracle<br>export ORACLE_UNQNAME=$ORACLE_SID<br>export ORACLE_BASE ORACLE_HOME ORACLE_SID PATH ORACLE_OWNR</pre><div id="highlighter_173147" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><span style="font-family:consolas, &#39;bitstream vera sans mono&#39;, &#39;courier new&#39;, courier, monospace;line-height:17.59375px;background-color:#fafafa;">增加shell限制</span><span class="span4br"></span></div><pre class="brush:bash;toolbar:false;">为了提升性能增加oracle用户的shell限制.<br># vi /etc/security/limits.conf  (在文件最后增加或修改以下参数)<br>oracle    soft    nproc   2047<br>oracle    hard    nproc   16384<br>oracle    soft    nofile  1024<br>oracle    hard    nofile  65536<br><br># vi /etc/pam.d/login  (在文件最后增加或修改以下参数)<br>session    required     pam_limits.sosession<br>session    required     /lib64/security/pam_limits.so<br><br># vi /etc/profile  (在文件最后增加或修改以下脚本)<br>if [ $USER = “oracle” ]; then<br>        if [ $SHELL = “/bin/sh” ]; then<br>              ulimit -p 16384<br>              ulimit -n 65536<br>        else<br>              ulimit -u 16384 -n 65536<br>        fi<br>fi</pre><br><br>## step 4 修改hosts文件<br><pre class="brush:bash;toolbar:false;">127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4 viti<br>::1         localhost localhost.localdomain localhost6 localhost6.localdomain6 viti</pre><br><br>增加ip和hostname的map<br><br><span class="span4br"></span><br><br>## step 5 使用静默安装，复制一个安装响应文件<br><pre class="brush:bash;toolbar:false;">[oracle@congyuandong-centos response]$ cp db_install.rsp db_install_swonly.rsp<br>[oracle@congyuandong-centos response]$ ls<br>dbca.rsp  db_install.rsp  db_install_swonly.rsp  netca.rsp</pre><br><br>配置该文件，然后开始安装<br><br><span class="span4br"></span><br><br>需要配置的参数如下<br><br><span class="span4br"></span><br><pre class="brush:bash;toolbar:false;">oracle.install.responseFileVersion=/oracle/install/rspfmt_dbinstall_response_schema_v11_2_0<br><br>oracle.install.option=INSTALL_DB_SWONLY<br><br>ORACLE_HOSTNAME=viti<br><br>UNIX_GROUP_NAME=oinstall<br><br>INVENTORY_LOCATION=/usr/local/oracle/oraInventory<br><br>SELECTED_LANGUAGES=en,zh_CN,zh_TW<br><br>ORACLE_HOME=/usr/local/oracle/product/11.2.0/dbhome_1<br><br>ORACLE_BASE=/usr/local/oracle<br><br>oracle.install.db.InstallEdition=EE<br><br>oracle.install.db.isCustomInstall=true<br><br>oracle.install.db.customComponents=oracle.server:11.2.0.1.0,oracle.sysman.ccr:10.2.7.0.0,oracle.xdk:11.2.0.1.0,oracle.rdbms.oci:11.2.0.1.0,oracle.network:11.2.0.1.0,oracle.network.listener:11.2.0.1.0,oracle.rdbms:11.2.0.1.0,oracle.options:11.2.0.1.0,oracle.rdbms.partitioning:11.2.0.1.0,oracle.oraolap:11.2.0.1.0,oracle.rdbms.dm:11.2.0.1.0,oracle.rdbms.dv:11.2.0.1.0,orcle.rdbms.lbac:11.2.0.1.0,oracle.rdbms.rat:11.2.0.1.0<br><br>oracle.install.db.DBA_GROUP=oracleDba<br><br>oracle.install.db.OPER_GROUP=oinstall<br><br>DECLINE_SECURITY_UPDATES=true</pre><br><br><span class="span4br"></span><br><br>然后运行<br><pre class="brush:bash;toolbar:false;">$./runInstaller -silent -responseFile /usr/local/oracle/database/response/db_install_swonly.rsp</pre><br><br><span class="span4br"></span><br><br><span class="span4br"></span><br><div id="highlighter_198456" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><pre class="brush:bash;toolbar:false;">[oracle@viti database]$ The following configuration scripts need to be executed as the “root” user.<br> #!/bin/sh<br> #Root scripts to run<br><br>/usr/local/oracle/oraInventory/orainstRoot.sh<br>/usr/local/oracle/product/11.2.0/dbhome_1/root.sh<br>To execute the configuration scripts:<br>         1. Open a terminal window<br>         2. Log in as “root”<br>         3. Run the scripts<br>         4. Return to this window and hit “Enter” key to continue<br><br>Successfully Setup Software.</pre><div id="highlighter_619145" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><span class="span4br"></span></div><div id="highlighter_619145" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;">运行相应的脚本文件即可。</div>
+
+<h2 id="step-6-复制并编辑静默建库响应文件"><a href="#step-6-复制并编辑静默建库响应文件" class="headerlink" title="step 6 复制并编辑静默建库响应文件"></a>step 6 复制并<span style="font-size:1em;line-height:1.1em;">编辑静默建库响应文件</span></h2><div id="highlighter_679514" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><pre class="brush:bash;toolbar:false;">[oracle@viti response]$ cp dbca.rsp dbca_orcl.rsp</pre><div id="highlighter_662704" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><span class="span4br"></span></div><div id="highlighter_662704" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;">然后修改相应的参数</div><div id="highlighter_662704" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><span class="span4br"></span></div><div id="highlighter_662704" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><pre class="brush:bash;toolbar:false;">RESPONSEFILE_VERSION = “11.2.0”  //不能更改<br>OPERATION_TYPE = “createDatabase”<br>GDBNAME = “orcl11g.us.oracle.com”  //数据库的名字<br>SID = “orcl11g”    //对应的实例名字<br>TEMPLATENAME = “General_Purpose.dbc” //建库用的模板文件<br>SYSPASSWORD = “xxxx”   //SYS管理员密码<br>SYSTEMPASSWORD = “xxxx”  //SYSTEM管理员密码<br>DATAFILEDESTINATION = xxxx //数据文件存放目录<br>RECOVERYAREADESTINATION=xxxx //恢复数据存放目录<br>CHARACTERSET = “ZHS16GBK”   //字符集，重要!!! 建库后一般不能更改，所以建库前要确定清楚。<br>TOTALMEMORY = “5120”    //oracle内存5120MB</pre><span class="span4br"></span></div><div id="highlighter_662704" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;">之后运行即可</div><div id="highlighter_662704" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><span class="span4br"></span></div><div id="highlighter_662704" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><pre class="brush:bash;toolbar:false;">[oracle@viti response]$ dbca -silent -responseFile /usr/local/oracle/database/response/dbca_orcl.rsp<br>Copying database files</pre><span class="span4br"></span></div><span class="span4br"></span></div>
+
+<h2 id="step-7-配置静默监听"><a href="#step-7-配置静默监听" class="headerlink" title="step 7 配置静默监听"></a>step 7 <span style="font-size:1em;line-height:1.1em;">配置静默监听</span></h2><div id="highlighter_679514" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><span class="span4br"></span></div><div id="highlighter_679514" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><pre class="brush:bash;toolbar:false;">[oracle@viti response]$ netca /silent /responsefile /usr/local/oracle/database/response/netca.rsp<br><br>Parsing command line arguments:<br>    Parameter “silent” = true<br>    Parameter “responsefile” = /usr/local/oracle/database/response/netca.rsp<br>Done parsing command line arguments.<br>Oracle Net Services Configuration:<br>Profile configuration complete.<br>Oracle Net Listener Startup:<br>    Running Listener Control:<br>      /usr/local/oracle/product/11.2.0/dbhome_1/bin/lsnrctl start LISTENER<br>    Listener Control complete.<br>    Listener started successfully.<br>Listener configuration complete.<br>Oracle Net Services configuration successful. The exit code is 0</pre><span class="span4br"></span></div><div id="highlighter_679514" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;">成功后可以看到相应监听开启了</div><div id="highlighter_679514" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><span class="span4br"></span></div><div id="highlighter_679514" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><pre class="brush:bash;toolbar:false;">[oracle@viti response]$ netstat -tlnp<br>(Not all processes could be identified, non-owned process info<br> will not be shown, you would have to be root to see it all.)<br>Active Internet connections (only servers)<br>Proto Recv-Q Send-Q Local Address               Foreign Address             State       PID/Program name<br>tcp        0      0 0.0.0.0:15789               0.0.0.0:<em>                   LISTEN      -<br>tcp        0      0 0.0.0.0:111                 0.0.0.0:</em>                   LISTEN      -<br>tcp        0      0 0.0.0.0:22                  0.0.0.0:<em>                   LISTEN      -<br>tcp        0      0 127.0.0.1:631               0.0.0.0:</em>                   LISTEN      -<br>tcp        0      0 127.0.0.1:25                0.0.0.0:<em>                   LISTEN      -<br>tcp        0      0 :::51724                    :::</em>                        LISTEN      -<br>tcp        0      0 :::111                      :::<em>                        LISTEN      -<br>tcp        0      0 :::1521                     :::</em>                        LISTEN      17671/tnslsnr<br>tcp        0      0 :::22                       :::<em>                        LISTEN      -<br>tcp        0      0 ::1:631                     :::</em>                        LISTEN      -<br>tcp        0      0 ::1:25                      :::*                        LISTEN      -</pre><span class="span4br"></span></div><div id="highlighter_679514" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><span class="span4br"></span></div><div id="highlighter_679514" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;"><span class="span4br"></span></div><span class="span4br"></span></div>
+
+<h1 id="buglist"><a href="#buglist" class="headerlink" title="buglist"></a>buglist</h1><div id="highlighter_719765" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;">1</div><pre class="brush:bash;toolbar:false;">The operating system group specified for central inventory (oraInventory) ownership is invalid.<br>   CAUSE: No value specified for central inventory (oraInventory) ownership group.<br>   ACTION: Specify an operating system group whose members should have write permission to the central inventory directory (oraInventory).</pre><br><br>解决<br><div><pre class="brush:as3;toolbar:false;">Nevermind I figured it out. My UNIX_GROUP_NAME was set to “oracle” and should have been “oinstall”.</pre><a href="https://forums.oracle.com/forums/thread.jspa?threadID=2316425" target="_blank" rel="external"></a><a href="https://forums.oracle.com/forums/thread.jspa?threadID=2316425" target="_blank" rel="external"></a></div>
+
+<p><a href="https://forums.oracle.com/forums/thread.jspa?threadID=2316425" target="_blank" rel="external"></a><a href="https://forums.oracle.com/forums/thread.jspa?threadID=2316425" target="_blank" rel="external"></a><a href="https://forums.oracle.com/forums/thread.jspa?threadID=2316425" target="_blank" rel="external"></a><a href="https://forums.oracle.com/forums/thread.jspa?threadID=2316425" target="_blank" rel="external"></a><a href="https://forums.oracle.com/forums/thread.jspa?threadID=2316425" target="_blank" rel="external">https://forums.oracle.com/forums/thread.jspa?threadID=2316425</a></p>
+<div><span class="span4br"></span><div>2 </div><div><span class="span4br"></span></div><div>如果提示swap交换空间不足，则增加交换空间</div><div><span class="span4br"></span></div><div><pre class="brush:bash;toolbar:false;">[root@viti /]# dd if=/dev/zero of=swapfile bs=1024 count=500000<br>记录了500000+0 的读入<br>记录了500000+0 的写出<br>512000000字节(512 MB)已复制，1.83025 秒，280 MB/秒<br>[root@viti /]# mkswap swapfile<br>mkswap: swapfile: warning: don’t erase bootbits sectors<br>        on whole disk. Use -f to force.<br>Setting up swapspace version 1, size = 499996 KiB<br>no label, UUID=b2e90b39-f760-403f-9580-a75f3ae2d654<br>[root@viti /]# swapon swapfile<br>[root@viti /]# free<br>             total       used       free     shared    buffers     cached<br>Mem:      32861468    1249176   31612292          0      15752     821368<br>-/+ buffers/cache:     412056   32449412<br>Swap:     16998672          0   16998672<br>[root@viti /]#</pre><span class="span4br"></span></div><div>3</div><div><span class="span4br"></span></div><div>提示缺少glibc i686等</div><div> 可以去rpmfind网站下载相应的包，很好的网站</div><div><a href="http://www.rpmfind.net/" target="_blank" rel="external"></a><a href="http://www.rpmfind.net" target="_blank" rel="external">http://www.rpmfind.net</a></div><div>需要下载</div><div> <a href="ftp://195.220.108.108/linux/centos/6.4/os/x86_64/Packages/nss-softokn-freebl-3.12.9-11.el6.i686.rpm" target="_blank" rel="external">nss-softokn-freebl-3.12.9-11.el6.i686.rpm</a><div>包，之后使用rpm一起安装。</div><div><span class="span4br"></span></div><div>4 </div><div><span class="span4br"></span></div><div><span style="font-family:palatino, georgia, verdana, arial, sans-serif;font-size:14px;line-height:21px;background-color:#ffffff;">ERROR:</span><br><span style="font-family:palatino, georgia, verdana, arial, sans-serif;font-size:14px;line-height:21px;background-color:#ffffff;">ORA-27101 Shared memory realm does not exist</span><br><span style="font-family:palatino, georgia, verdana, arial, sans-serif;font-size:14px;line-height:21px;background-color:#ffffff;">ORA-01034 ORACLE not available</span><span class="span4br"></span></div><div><span style="font-family:palatino, georgia, verdana, arial, sans-serif;font-size:14px;line-height:21px;background-color:#ffffff;"><span class="span4br"></span></span></div><div><span style="font-family:palatino, georgia, verdana, arial, sans-serif;"><span style="font-size:14px;line-height:21px;">使用sysdba 登录之后startup既可</span></span></div><div><span style="font-family:palatino, georgia, verdana, arial, sans-serif;"><span style="font-size:14px;line-height:21px;"><span class="span4br"></span></span></span></div><div><span style="font-family:palatino, georgia, verdana, arial, sans-serif;"><span style="font-size:14px;line-height:21px;"></span></span><pre class="brush:bash;toolbar:false;">[oracle@viti ~]$ sqlplus / as sysdba<br><br>SQL*Plus: Release 11.2.0.1.0 Production on Mon Aug 29 07:25:23 2011<br><br>Copyright (c) 1982, 2009, Oracle.  All rights reserved.<br><br>Connected to an idle instance.<br><br>SQL&gt; startup<br>ORACLE instance started.<br><br>Total System Global Area 5344731136 bytes<br>Fixed Size          2213136 bytes<br>Variable Size        3355446000 bytes<br>Database Buffers     1946157056 bytes<br>Redo Buffers           40914944 bytes<br>Database mounted.<br>Database opened.</pre><span style="font-family:palatino, georgia, verdana, arial, sans-serif;"><span style="font-size:14px;line-height:21px;"><span class="span4br"></span></span></span></div><div><span style="font-family:palatino, georgia, verdana, arial, sans-serif;"><span style="font-size:14px;line-height:21px;"><span class="span4br"></span></span></span></div><div><span style="font-family:palatino, georgia, verdana, arial, sans-serif;"><span style="font-size:14px;line-height:21px;">5</span></span></div><div><span style="font-family:palatino, georgia, verdana, arial, sans-serif;"><span style="font-size:14px;line-height:21px;"><span class="span4br"></span></span></span></div>
+
+<p>ORA-01102: cannot mount database in EXCLUSIVE mode<span class="span4br"></span></p>
+<div><br><br>oracle@r05a11016.yh.com:/home/oracle&gt;sqlplus &quot;/as sysdba&quot;<br>SQL*Plus: Release 11.2.0.2.0 Production on Fri Apr 15 16:17:39 2011<br>Copyright (c) 1982, 2010, Oracle. &nbsp;All rights reserved.<br>Connected to an idle instance.<br>SQL&gt; startup<br>ORACLE instance started.<br>Total System Global Area 1.7103E+10 bytes<br>Fixed Size &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2243608 bytes<br>Variable Size &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;8455717864 bytes<br>Database Buffers &nbsp; &nbsp; &nbsp; &nbsp; 8623489024 bytes<br>Redo Buffers &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 21712896 bytes<br>ORA-01102: cannot mount database in EXCLUSIVE mode<br><br>1 在ORACLE_HOME/dbs/存在 &quot;sgadef&lt;sid&gt;.dbf&quot; 文件或者lk&lt;db_name&gt; 文件。这两个文件是用来用于锁内存的。<br>2 oracle的 pmon, smon, lgwr and dbwr等进程未正常关闭。<br>3 数据库关闭后，共享内存或者信号量依然被占用。<br>lk&lt;SID&gt;说明DATABASE 已经是MOUNT状态了,不用再次MOUNT.当 DATABASE 被UNMOUNT 后会被自动删除,如果DATABASE没有MOUNT,却依然存在这个问题，只有手工将其删除。<br>具体解决ORA-01102问题的步骤:<span style="margin:0px;padding:0px;border:0px;font-family:arial, helvetica, sans-serif;font-size:12px;font-style:inherit;font-variant:inherit;line-height:21.59375px;vertical-align:baseline;"><span class="span4br" style="margin:0px;padding:0px;border:0px;font-family:inherit;font-size:inherit;font-style:inherit;font-variant:inherit;line-height:inherit;vertical-align:baseline;"></span></span><br><div id="highlighter_412144" class="syntaxhighlighter  bash" highlighter="brush:bash;toolbar:false;" style="padding:0px;border:0px;font-family:georgia, &#39;times new roman&#39;, times, serif;font-size:13px;line-height:23px;vertical-align:baseline;width:755.6875px;color:#313436;-webkit-text-size-adjust:none;"><span style="margin:0px;padding:0px;border:0px;font-family:arial, helvetica, sans-serif;font-size:12px;font-style:inherit;font-variant:inherit;line-height:21.59375px;vertical-align:baseline;"><span class="span4br" style="margin:0px;padding:0px;border:0px;font-family:inherit;font-size:inherit;font-style:inherit;font-variant:inherit;line-height:inherit;vertical-align:baseline;"></span></span></div><div style="margin:0px;padding:0px;border:0px;font-family:georgia, &#39;times new roman&#39;, times, serif;font-size:13px;line-height:23px;vertical-align:baseline;color:#313436;-webkit-text-size-adjust:none;background-color:#ffffff;"><pre class="brush:bash;toolbar:false;">[oracle@viti dbs]$ ls<br>hc_orcl11g.dat  init.ora  lkORCL11G  orapworcl11g  spfileorcl11g.ora<br>[oracle@viti dbs]$ /sbin/fuser -u lkORCL11G<br>lkORCL11G:           18274(oracle) 18280(oracle) 18284(oracle) 18286(oracle) 18290(oracle) 18292(oracle) 18294(oracle) 18296(oracle) 18298(oracle) 18300(oracle) 18302(oracle) 18304(oracle) 18306(oracle) 18308(oracle) 18323(oracle) 18338(oracle) 18340(oracle) 18342(oracle) 18358(oracle) 18695(oracle)<br>[oracle@viti dbs]$ /sbin/fuser -k lkORCL11G<br>lkORCL11G:           18274 18280 18284 18286 18290 18292 18294 18296 18298 18300 18302 18304 18306 18308 18323 18338 18340 18342 18358 18695<br>[oracle@viti dbs]$ /sbin/fuser -u lkORCL11G</pre><pre><span class="span4br"></span></pre></div><span style="font-family:arial, helvetica, sans-serif;"><span style="font-size:12px;line-height:21.59375px;"></span></span></div><div><div><span class="span4br"></span></div></div></div></div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/oracle/" rel="tag">#oracle</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/04/12/c++-occi-oracle/" rel="next" title="C++通过OCCI操作Oracle数据库详解">
+                <i class="fa fa-chevron-left"></i> C++通过OCCI操作Oracle数据库详解
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/05/07/android-display-metrics/" rel="prev" title="android分别在activity和service中获取屏幕分辨率">
+                android分别在activity和service中获取屏幕分辨率 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/04/18/centos-oracle-install/"
+           data-title="Centos 6.4 x64 静默安装 oracle 11g R2" data-url="http://congyuandong.cn/2013/04/18/centos-oracle-install/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Yuandong Cong" />
+          <p class="site-author-name" itemprop="name">Yuandong Cong</p>
+          <p class="site-description motion-element" itemprop="description">一只猿的个人博客</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">34</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#step-0-检查安装环境"><span class="nav-number">1.</span> <span class="nav-text">step 0 检查安装环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-1-安装所需的包"><span class="nav-number">2.</span> <span class="nav-text">step 1 安装所需的包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-2-配置sysctl-conf文件"><span class="nav-number">3.</span> <span class="nav-text">step 2 配置sysctl.conf文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-6-复制并编辑静默建库响应文件"><span class="nav-number">4.</span> <span class="nav-text">step 6 复制并编辑静默建库响应文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-7-配置静默监听"><span class="nav-number">5.</span> <span class="nav-text">step 7 配置静默监听</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#buglist"><span class="nav-number"></span> <span class="nav-text">buglist</span></a></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2013 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuandong Cong</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  黑ICP备14005003号
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  
+
+
+  
+
+
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
+
+
+  
+  
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=0.5.0"></script>
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          NexT.utils.displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"congyuandong"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+</body>
+</html>

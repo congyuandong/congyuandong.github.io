@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/11/01/django-tag/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Django使用自定义Tag实现动态导航栏</title>
+        <pubTime>2014-11-01T07:07:02.000Z</pubTime>
+        
+        <tag>django</tag>
+         
+        <tag>tag</tag>
+         
+        <tag>nav</tag>
+         
+         
+           
+             
+              <breadCrumb title="django" url="http://congyuandong.cn/categories/django/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/10/27/access-control-allow-origin/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>百度地图API is not allowed by Access-Control-Allow-Origin</title>
+        <pubTime>2014-10-26T18:15:04.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="WEB Dev" url="http://congyuandong.cn/categories/WEB-Dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2013/04/10/android-centos/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>在centos下用手机调试android程序</title>
+        <pubTime>2013-04-09T19:11:46.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="android开发" url="http://congyuandong.cn/categories/android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2016/03/18/android-malware-detection/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>android malware detection</title>
+        <pubTime>2016-03-17T16:17:57.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="demo" url="http://congyuandong.cn/categories/demo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/12/13/android-studio-mac/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac下安装Android Studio提示can not find a valid JVM</title>
+        <pubTime>2014-12-13T14:02:36.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+        <tag>android studio</tag>
+         
+         
+           
+             
+              <breadCrumb title="android" url="http://congyuandong.cn/categories/android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2013/03/07/android-imei-and-system-version/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>android获取手机型号和系统版本号</title>
+        <pubTime>2013-03-07T00:31:29.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="android" url="http://congyuandong.cn/categories/android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2015/05/04/bash-binrm-argument-list-too-long/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>-bash: /bin/rm: Argument list too long</title>
+        <pubTime>2015-05-04T07:31:08.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="linux" url="http://congyuandong.cn/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2013/04/10/centos-android-dev-env/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>centos x64 搭建android开发环境</title>
+        <pubTime>2013-04-09T18:57:23.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="android" url="http://congyuandong.cn/categories/android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2016/02/17/blog-nirvana/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>blog nirvana</title>
+        <pubTime>2016-02-17T07:55:35.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>nodejs</tag>
+         
+        <tag>github</tag>
+         
+        <tag>deploy</tag>
+         
+         
+           
+             
+              <breadCrumb title="博客维护" url="http://congyuandong.cn/categories/%E5%8D%9A%E5%AE%A2%E7%BB%B4%E6%8A%A4/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2013/05/09/centos-mongodb-install/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>centos 6.4 x64 安装 mongodb</title>
+        <pubTime>2013-05-09T02:25:38.000Z</pubTime>
+        
+        <tag>mogodb</tag>
+         
+         
+           
+             
+              <breadCrumb title="database" url="http://congyuandong.cn/categories/database/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/10/16/centos-mysqldb/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Centos和MAC安装MysqlDB</title>
+        <pubTime>2014-10-16T11:57:45.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="database" url="http://congyuandong.cn/categories/database/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/03/30/chrome-mobile-emulation/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Chrome模拟手机调试程序</title>
+        <pubTime>2014-03-30T13:44:06.000Z</pubTime>
+        
+        <tag>mobile</tag>
+         
+        <tag>chrome</tag>
+         
+         
+           
+             
+              <breadCrumb title="WEB Dev" url="http://congyuandong.cn/categories/WEB-Dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2013/04/12/c++-occi-oracle/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>C++通过OCCI操作Oracle数据库详解</title>
+        <pubTime>2013-04-12T05:21:47.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>oracle</tag>
+         
+        <tag>occi</tag>
+         
+         
+           
+             
+              <breadCrumb title="database" url="http://congyuandong.cn/categories/database/"/>
+          
+             
+              <breadCrumb title="C/C++" url="http://congyuandong.cn/categories/database/C-C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2016/03/18/demo-list/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>demo list</title>
+        <pubTime>2016-03-17T16:14:45.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="demo" url="http://congyuandong.cn/categories/demo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2013/04/18/centos-oracle-install/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Centos 6.4 x64 静默安装 oracle 11g R2</title>
+        <pubTime>2013-04-18T09:13:33.000Z</pubTime>
+        
+        <tag>oracle</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://congyuandong.cn/categories/linux/"/>
+          
+             
+              <breadCrumb title="database" url="http://congyuandong.cn/categories/linux/database/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/10/25/deploy-django-with-apache/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用Apache部署Django</title>
+        <pubTime>2014-10-25T11:04:54.000Z</pubTime>
+        
+        <tag>apache</tag>
+         
+        <tag>django</tag>
+         
+         
+           
+             
+              <breadCrumb title="django" url="http://congyuandong.cn/categories/django/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/10/28/django-extension-models-2-graph/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Django使用django-extensions输出Models图形</title>
+        <pubTime>2014-10-27T17:38:45.000Z</pubTime>
+        
+        <tag>django</tag>
+         
+        <tag>django-extensions</tag>
+         
+         
+           
+             
+              <breadCrumb title="django" url="http://congyuandong.cn/categories/django/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/10/29/django-models/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Django models生成文档</title>
+        <pubTime>2014-10-29T04:51:17.000Z</pubTime>
+        
+        <tag>django</tag>
+         
+        <tag>m2doc</tag>
+         
+        <tag>models</tag>
+         
+         
+           
+             
+              <breadCrumb title="django" url="http://congyuandong.cn/categories/django/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/11/13/django-imagekit/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Django使用imagekit处理上传图片</title>
+        <pubTime>2014-11-13T13:52:12.000Z</pubTime>
+        
+        <tag>django</tag>
+         
+        <tag>imagekit</tag>
+         
+         
+           
+             
+              <breadCrumb title="django" url="http://congyuandong.cn/categories/django/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2013/05/07/android-display-metrics/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>android分别在activity和service中获取屏幕分辨率</title>
+        <pubTime>2013-05-07T10:58:36.000Z</pubTime>
+        
+        <tag>android</tag>
+         
+         
+           
+             
+              <breadCrumb title="android" url="http://congyuandong.cn/categories/android/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2016/02/16/hello-world/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2016-02-15T16:00:00.000Z</pubTime>
+        
+        <tag>test</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2016/02/22/hexo-sitemap/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo生成sitemap站点地图的方法</title>
+        <pubTime>2016-02-22T08:49:19.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>sitemap</tag>
+         
+        <tag>baidusitemap</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="http://congyuandong.cn/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/11/16/jQuery-baidu/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>仿百度百科锚点跟随功能</title>
+        <pubTime>2014-11-15T16:17:50.000Z</pubTime>
+        
+        <tag>锚点</tag>
+         
+         
+           
+             
+              <breadCrumb title="WEB Dev" url="http://congyuandong.cn/categories/WEB-Dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2015/03/05/jQuery-each-loop/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Jquery each如何跳出循环并获得返回值</title>
+        <pubTime>2015-03-05T08:10:17.000Z</pubTime>
+        
+        <tag>js</tag>
+         
+        <tag>jQuery</tag>
+         
+         
+           
+             
+              <breadCrumb title="WEB Dev" url="http://congyuandong.cn/categories/WEB-Dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2013/02/25/highcharts-guide/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Highcharts使用指南</title>
+        <pubTime>2013-02-25T07:58:31.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="WEB Dev" url="http://congyuandong.cn/categories/WEB-Dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/11/30/jQuery-mobile-data-ajax/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>jQuery mobile & Django 跳转问题</title>
+        <pubTime>2014-11-29T16:17:27.000Z</pubTime>
+        
+        <tag>django</tag>
+         
+        <tag>jQuery</tag>
+         
+        <tag>jQuery mobile</tag>
+         
+         
+           
+             
+              <breadCrumb title="WEB Dev" url="http://congyuandong.cn/categories/WEB-Dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2015/02/28/nginx-deploy/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Nginx环境部署全攻略</title>
+        <pubTime>2015-02-27T16:35:38.000Z</pubTime>
+        
+        <tag>deploy</tag>
+         
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://congyuandong.cn/categories/linux/"/>
+          
+             
+              <breadCrumb title="WEB Dev" url="http://congyuandong.cn/categories/linux/WEB-Dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2016/02/25/npm-install-killed/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>npm install killed</title>
+        <pubTime>2016-02-25T11:17:48.000Z</pubTime>
+        
+        <tag>nodejs</tag>
+         
+        <tag>npm</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://congyuandong.cn/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2013/09/14/oracle-imp-00013/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>IMP-00013: only a DBA can Import a file Exported by another DBA  </title>
+        <pubTime>2013-09-14T03:19:54.000Z</pubTime>
+        
+        <tag>oracle</tag>
+         
+         
+           
+             
+              <breadCrumb title="database" url="http://congyuandong.cn/categories/database/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/10/19/picture-storge/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>图片外链空间哪家强</title>
+        <pubTime>2014-10-19T15:27:22.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="WEB Dev" url="http://congyuandong.cn/categories/WEB-Dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2013/04/06/python-in-acm/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python in ACM</title>
+        <pubTime>2013-04-06T08:21:58.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>acm</tag>
+         
+         
+           
+             
+              <breadCrumb title="python" url="http://congyuandong.cn/categories/python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/10/26/remember-petersburg/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>圣彼得堡游记</title>
+        <pubTime>2014-10-26T05:45:30.000Z</pubTime>
+        
+        <tag>圣彼得堡游记</tag>
+         
+         
+           
+             
+              <breadCrumb title="travel" url="http://congyuandong.cn/categories/travel/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/10/29/sublime-reg/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>Sublime 高级正则查找替换</title>
+        <pubTime>2014-10-29T09:52:42.000Z</pubTime>
+        
+        <tag>django</tag>
+         
+         
+           
+             
+              <breadCrumb title="django" url="http://congyuandong.cn/categories/django/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/12/10/x-frame-options/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>X-Frame-Options用法</title>
+        <pubTime>2014-12-10T06:16:51.000Z</pubTime>
+        
+        <tag>X-Frame-Options</tag>
+         
+         
+           
+             
+              <breadCrumb title="WEB Dev" url="http://congyuandong.cn/categories/WEB-Dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2014/10/10/tools/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>工具集</title>
+        <pubTime>2014-10-10T08:53:27.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="tools" url="http://congyuandong.cn/categories/tools/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://congyuandong.cn/2013/05/15/you-dont-have-permission-to-access-on-this-server/</loc>
+    <lastmod>2016-09-30T01:34:24.000Z</lastmod>
+    <data>
+        <display>
+        <title>You don't have permission to access / on this server.</title>
+        <pubTime>2013-05-15T06:28:27.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="WEB Dev" url="http://congyuandong.cn/categories/WEB-Dev/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+</urlset>
